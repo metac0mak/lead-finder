@@ -1,17 +1,28 @@
 'use strict';
 
 const Hapi = require('hapi');
-const mongojs = require('mongojs');
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
 
 // Create a server with a host and port
 const server = new Hapi.Server();
 server.connection({
-    host: 'localhost', 
+    host: 'localhost',
     port: 3000
 });
 
-//Connect to db
-server.app.db = mongojs('hapi-rest-mongo', ['books']);
+// create mongo connection
+const dbUrl = 'mongodb://localhost:27017';
+const dbName = 'lead-finder';
+
+MongoClient.connect(dbUrl, function(err, client) {
+  assert.equal(null, err);
+  console.log(`Connected successfully to mongodb at ${dbUrl}/${dbName}`);
+
+  const db = client.db(dbName);
+
+  client.close();
+});
 
 //Load plugins and start server
 server.register([

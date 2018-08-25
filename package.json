@@ -1,19 +1,24 @@
 {
-  "name": "hapi-rest-mongo",
+  "name": "lead-finder",
   "version": "1.0.0",
-  "description": "Simple REST project with hapijs and mongodb.",
+  "description": "",
   "main": "server.js",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Patrick Meier",
+  "author": "",
   "license": "Apache-2.0",
   "dependencies": {
+    "assert": "^1.4.1",
     "boom": "^4.2.0",
     "hapi": "^16.1.0",
+    "hapi-swagger": "^9.1.1",
+    "inert": "^5.1.0",
     "joi": "^10.2.2",
-    "mongojs": "^2.4.0",
-    "node-uuid": "^1.4.7"
+    "mongod": "^2.0.0",
+    "mongodb": "^3.1.3",
+    "node-uuid": "^1.4.7",
+    "vision": "^5.4.0"
   }
 }
